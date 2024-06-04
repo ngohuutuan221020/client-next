@@ -191,7 +191,7 @@ const Manga = () => {
           );
         })}
       {index == 5 &&
-        Array.from({ length: 80 }).map((item, idx) => {
+        Array.from({ length: 79 }).map((item, idx) => {
           let image = idx + 3;
           return (
             <Image
