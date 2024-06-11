@@ -109,7 +109,7 @@ const Manga = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          width: "70%",
+          width: "100%",
         }}
       >
         {(index < 1 || index > 5) && (
