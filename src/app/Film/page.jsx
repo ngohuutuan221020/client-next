@@ -1,48 +1,43 @@
-"use client";
-import { ModeToggle } from "@/components/mode-toggle";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import Image from "next/image";
-import Link from "next/link";
-import React, { useState } from "react";
+// "use client";
+
+import PageAPI from "@/app/api/page";
+// import { ModeToggle } from "@/components/mode-toggle";
+// import { Button } from "@/components/ui/button";
+// import { Input } from "@/components/ui/input";
+
+// import Link from "next/link";
+import React from "react";
 
 const Film = () => {
-  const [index, setIndex] = useState(1);
+  // const [index, setIndex] = useState(1);
+  // const [value, setValue] = useState(1);
 
-  const [value, setValue] = useState(1);
+  // const handleClickNext = () => {
+  //   setIndex(index + 1);
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // };
 
-  const handleClickNext = () => {
-    setIndex(index + 1);
+  // const handleClickPre = () => {
+  //   setIndex(index - 1);
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // };
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-  const handleClickPre = () => {
-    setIndex(index - 1);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-  const isBrowser = () => typeof window !== "undefined"; //The approach recommended by Next.js
+  // const isBrowser = () => typeof window !== "undefined";
 
-  function scrollToTop() {
-    setIndex(value);
-    if (!isBrowser()) return;
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
+  // function scrollToTop() {
+  //   setIndex(value);
+  //   if (!isBrowser()) return;
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // }
 
-  const handleInput = (event: any) => {
-    let input = event.target.value;
-    setValue(+input);
-  };
+  // const handleInput = (event) => {
+  //   let input = event.target.value;
+  //   setValue(+input);
+  // };
 
   return (
-    <div
-      className="film"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
-      <div
+    <div className="film">
+      {/* <div
         style={{
           display: "flex",
           width: "100%",
@@ -51,7 +46,6 @@ const Film = () => {
           justifyContent: "center",
           alignItems: "center",
           padding: "1rem",
-          // position: "sticky",
           top: 0,
           left: 0,
           right: 0,
@@ -63,17 +57,14 @@ const Film = () => {
           className="Control"
           style={{ display: "flex", flexDirection: "row", gap: "1rem" }}
         >
-          <Button disabled={index <= 1 ? true : false} onClick={handleClickPre}>
+          <Button disabled={index <= 1} onClick={handleClickPre}>
             Previous
           </Button>
           <div style={{ display: "flex", flexDirection: "row", gap: "1rem" }}>
             <Input onChange={(e) => handleInput(e)} />
             <Button onClick={scrollToTop}>Enter {value}</Button>
           </div>
-          <Button
-            disabled={index >= 5 ? true : false}
-            onClick={handleClickNext}
-          >
+          <Button disabled={index >= 5} onClick={handleClickNext}>
             Next
           </Button>
         </div>
@@ -100,22 +91,26 @@ const Film = () => {
             </Link>
           </Button>
         </div>
-      </div>
+      </div> */}
       <div
         className="container-video"
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          gap: "2rem",
+          flexWrap: "wrap",
+          justifyContent: "center",
         }}
       >
-        <video
+        <PageAPI />
+        {/* <video
           src={`/Video/Midareuchi${index}.mp4`}
           controls
           style={{
             height: "85vh",
           }}
-        />
+        /> */}
       </div>
     </div>
   );
